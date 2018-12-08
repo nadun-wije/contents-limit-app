@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import { Container } from './styledComponents';
 import ListItem from '../ListItem';
 
-function CategoryList(props) {
+function CategoryList({ category, total, items }) {
   return (
     <React.Fragment>
-      <ListItem name={props.category} price={props.total} />
+      <ListItem name={category} price={total} isCategory={true} />
       <Container>
-        {props.items.map(item => (
+        {items.map(item => (
           <ListItem key={item.id} name={item.name} price={item.price} />
         ))}
       </Container>

@@ -13,7 +13,8 @@ import { Switch, Route } from 'react-router-dom';
 import Application from '../Application';
 
 const AppWrapper = styled.div`
-  max-width: calc(768px + 16px * 2);
+  border: 1px solid black;
+  max-width: 500px;
   margin: 0 auto;
   display: flex;
   min-height: 100%;

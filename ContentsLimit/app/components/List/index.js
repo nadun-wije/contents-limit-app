@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import { Container } from './styledComponents';
 import CategoryList from '../CategoryList';
 
-function List(props) {
+function List({ categories }) {
   return (
     <Container>
-      {props.categories.map(item => (
+      {categories.map(item => (
         <CategoryList
           key={item.category}
           category={item.category}
