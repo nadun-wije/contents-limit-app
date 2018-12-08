@@ -15,19 +15,42 @@ import { compose } from 'redux';
 import injectReducer from 'utils/injectReducer';
 import makeSelectApplication from './selectors';
 import reducer from './reducer';
-import ListItem from '../../components/ListItem';
 import CategoryList from '../../components/CategoryList';
+import List from '../../components/List';
+import { AppContainer } from './styledComponents';
 
 function Application() {
   return (
-    <CategoryList
-      category="asdf"
-      total="456"
-      items={[
-        { id: 1, name: 'First', price: 10 },
-        { id: 2, name: 'Second', price: 20 },
-      ]}
-    />
+    <AppContainer>
+      <List
+        categories={[
+          {
+            category: 'Electronics',
+            total: '123',
+            items: [
+              { id: 1, name: 'First', price: 10 },
+              { id: 2, name: 'Second', price: 20 },
+            ],
+          },
+          {
+            category: 'Clothing',
+            total: '123',
+            items: [
+              { id: 3, name: 'Third', price: 10 },
+              { id: 4, name: 'Fourth', price: 20 },
+            ],
+          },
+        ]}
+      />
+    </AppContainer>
+    // <CategoryList
+    //   category="asdf"
+    //   total="456"
+    //   items={[
+    //     { id: 1, name: 'First', price: 10 },
+    //     { id: 2, name: 'Second', price: 20 },
+    //   ]}
+    // />
   );
 }
 
