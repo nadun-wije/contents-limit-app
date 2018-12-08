@@ -1,19 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Item from './Item';
-import Wrapper from './Wrapper';
+import DeleteIcon from '../../images/delete.png';
+import { Price, Item, Container } from './styledComponents';
 
 function ListItem(props) {
   return (
-    <Wrapper>
-      <Item>{props.item}</Item>
-    </Wrapper>
+    <Container>
+      <Item>{props.name}</Item>
+      <Price>{props.price}</Price>
+      <img src={DeleteIcon} alt="Delete" />
+    </Container>
   );
 }
 
 ListItem.propTypes = {
-  item: PropTypes.any,
+  name: PropTypes.string,
+  price: PropTypes.number,
 };
 
 export default ListItem;

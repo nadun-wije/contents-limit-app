@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Wrapper = styled.li`
+export const Container = styled.ul`
   width: 100%;
   height: 3em;
   display: flex;
@@ -12,5 +12,3 @@ const Wrapper = styled.li`
     border-top: none;
   }
 `;
-
-export default Wrapper;
