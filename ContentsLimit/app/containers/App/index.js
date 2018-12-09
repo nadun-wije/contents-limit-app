@@ -1,20 +1,65 @@
+/* eslint-disable linebreak-style */
+
 /**
  *
  * App
  *
- * This component is the skeleton around the actual pages, and should only
- * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { compose } from 'redux';
 
-import Application from '../Application';
+import injectReducer from 'utils/injectReducer';
 
-export default function App() {
+import List from '../../components/List';
+import AddToList from '../../components/AddToList';
+
+import { getStructuredList } from './selectors';
+import reducer from './reducer';
+import { AppContainer, TotalText, ListContainer } from './styledComponents';
+import { CATEGORY_LIST } from './constants';
+import { addToList } from './actions';
+
+function App({ list, total, onAddItemClick }) {
   return (
-    <Switch>
-      <Route path="/" component={Application} />
-    </Switch>
+    <AppContainer>
+      <ListContainer>
+        <List list={list} />
+
+        <TotalText>Total: {total}</TotalText>
+      </ListContainer>
+      <AddToList categories={CATEGORY_LIST} onAddClick={onAddItemClick} />
+    </AppContainer>
   );
 }
+
+App.propTypes = {
+  list: PropTypes.array,
+  total: PropTypes.number,
+  onAddItemClick: PropTypes.func,
+};
+
+const mapStateToProps = createStructuredSelector({
+  list: getStructuredList,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onAddItemClick: item => {
+    dispatch(addToList(item));
+  },
+});
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
+
+const withReducer = injectReducer({ key: 'app', reducer });
+
+export default compose(
+  withReducer,
+  withConnect,
+)(App);

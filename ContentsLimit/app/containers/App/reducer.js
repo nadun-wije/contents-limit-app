@@ -1,43 +1,38 @@
+/* eslint-disable linebreak-style */
 /*
- * AppReducer
  *
- * The reducer takes care of our data. Using actions, we can change our
- * application state.
- * To add a new action, add it to the switch statement in the reducer function
+ * App reducer
  *
- * Example:
- * case YOUR_ACTION_CONSTANT:
- *   return state.set('yourStateVariable', true);
  */
 
-import { fromJS } from 'immutable';
+import { ADD_TO_LIST, DELETE_FROM_LIST } from './constants';
 
-import { LOAD_REPOS_SUCCESS, LOAD_REPOS, LOAD_REPOS_ERROR } from './constants';
-
-// The initial state of the App
-const initialState = fromJS({
-  loading: false,
-  error: false,
-  currentUser: false,
-  userData: {
-    repositories: false,
-  },
-});
+export const initialState = {
+  list: [],
+};
 
 function appReducer(state = initialState, action) {
   switch (action.type) {
-    case LOAD_REPOS:
-      return state
-        .set('loading', true)
-        .set('error', false)
-        .setIn(['userData', 'repositories'], false);
-    case LOAD_REPOS_SUCCESS:
-      return state
-        .setIn(['userData', 'repositories'], action.repos)
-        .set('loading', false)
-        .set('currentUser', action.username);
-    case LOAD_REPOS_ERROR:
-      return state.set('error', action.error).set('loading', false);
+    case ADD_TO_LIST: {
+      // Create new item with an ID
+      let lastId = 0;
+      if (state.list.length > 0) lastId = state.list[state.list.length - 1].id;
+      const newItem = { ...action.item, id: lastId + 1 };
+      // Add item to the list
+      return {
+        ...state,
+        list: [...state.list, newItem],
+      };
+    }
+    case DELETE_FROM_LIST: {
+      // Remove the item from the list
+      const newList = state.list.filter(item => item.id !== action.itemId);
+      // Update the list in state
+      return {
+        ...state,
+        list: newList,
+      };
+    }
     default:
       return state;
   }

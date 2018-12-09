@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { deleteFromList } from '../../containers/Application/actions';
+import { deleteFromList } from '../../containers/App/actions';
 import DeleteIcon from '../../images/delete.png';
 
 import { Price, Name, Container } from './styledComponents';

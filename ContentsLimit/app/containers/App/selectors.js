@@ -1,37 +1,48 @@
+/* eslint-disable linebreak-style */
+import { createSelector } from 'reselect';
+import get from 'lodash/get';
+
+import { initialState } from './reducer';
+
 /**
- * The global state selectors
+ * Direct selector to the application state domain
  */
 
-import { createSelector } from 'reselect';
+export const getApp = state => state.get('app', initialState);
 
-const selectGlobal = state => state.get('global');
+/**
+ * Other specific selectors
+ */
 
-const selectRouter = state => state.get('router');
+/**
+ * Default selector used by App
+ */
 
-const makeSelectCurrentUser = () =>
-  createSelector(selectGlobal, globalState => globalState.get('currentUser'));
+export const getList = createSelector(getApp, app => get(app, 'list'));
 
-const makeSelectLoading = () =>
-  createSelector(selectGlobal, globalState => globalState.get('loading'));
+export const getStructuredList = createSelector(getList, list => {
+  // Create a set of unique categories
+  const categories = list.map(item => item.category);
+  const uniqueCategories = [...new Set(categories)];
 
-const makeSelectError = () =>
-  createSelector(selectGlobal, globalState => globalState.get('error'));
+  const structuredList = [];
 
-const makeSelectRepos = () =>
-  createSelector(selectGlobal, globalState =>
-    globalState.getIn(['userData', 'repositories']),
-  );
+  uniqueCategories.forEach(category => {
+    // Get the items in that category
+    const categoryList = list.filter(item => item.category === category);
+    // Get the sum of prices in that list
+    const total = categoryList.reduce(
+      (accumulator, item) => accumulator + parseFloat(item.price),
+      0,
+    );
+    // Create object with the necessary parameters and add to array
+    const structuredListItem = {
+      category,
+      total,
+      items: categoryList,
+    };
+    structuredList.push(structuredListItem);
+  });
 
-const makeSelectLocation = () =>
-  createSelector(selectRouter, routerState =>
-    routerState.get('location').toJS(),
-  );
-
-export {
-  selectGlobal,
-  makeSelectCurrentUser,
-  makeSelectLoading,
-  makeSelectError,
-  makeSelectRepos,
-  makeSelectLocation,
-};
+  return structuredList;
+});
