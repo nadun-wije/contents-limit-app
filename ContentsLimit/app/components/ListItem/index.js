@@ -21,7 +21,7 @@ ListItem.defaultProps = {
 ListItem.propTypes = {
   isCategory: PropTypes.bool,
   name: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
 };
 
 export default ListItem;

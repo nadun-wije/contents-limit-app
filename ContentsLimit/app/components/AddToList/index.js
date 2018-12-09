@@ -10,7 +10,7 @@ export class AddToList extends React.Component {
     this.state = {
       name: '',
       price: '',
-      category: '',
+      category: props.categories && props.categories[0],
     };
 
     this.updateName = this.updateName.bind(this);

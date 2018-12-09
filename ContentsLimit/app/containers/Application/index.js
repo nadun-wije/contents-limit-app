@@ -13,7 +13,7 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
 import injectReducer from 'utils/injectReducer';
-import makeSelectApplication from './selectors';
+import { getList, getStructuredList } from './selectors';
 import reducer from './reducer';
 import List from '../../components/List';
 import { AppContainer, TotalText, ListContainer } from './styledComponents';
@@ -21,30 +21,12 @@ import AddToList from '../../components/AddToList';
 import { CATEGORY_LIST } from './constants';
 import { addToList } from './actions';
 
-function Application({ total, onAddItemClick, onDeleteItemClick }) {
+function Application({ list, total, onAddItemClick, onDeleteItemClick }) {
+  console.log(list);
   return (
     <AppContainer>
       <ListContainer>
-        <List
-          categories={[
-            {
-              category: 'Electronics',
-              total: 123,
-              items: [
-                { id: 1, name: 'First', price: 10 },
-                { id: 2, name: 'Second', price: 20 },
-              ],
-            },
-            {
-              category: 'Clothing',
-              total: 123,
-              items: [
-                { id: 3, name: 'Third', price: 10 },
-                { id: 4, name: 'Fourth', price: 20 },
-              ],
-            },
-          ]}
-        />
+        <List categories={list} />
 
         <TotalText>Total: {total}</TotalText>
       </ListContainer>
@@ -54,13 +36,14 @@ function Application({ total, onAddItemClick, onDeleteItemClick }) {
 }
 
 Application.propTypes = {
+  list: PropTypes.array,
   total: PropTypes.number,
   onAddItemClick: PropTypes.func,
   onDeleteItemClick: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
-  // application: makeSelectApplication(),
+  list: getStructuredList,
 });
 
 const mapDispatchToProps = dispatch => ({
