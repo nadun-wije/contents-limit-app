@@ -1,3 +1,9 @@
+/**
+ *
+ * AddToList Styled Components
+ *
+ */
+
 import styled from 'styled-components';
 import { tablet, colors } from '../../styles/constants';
 

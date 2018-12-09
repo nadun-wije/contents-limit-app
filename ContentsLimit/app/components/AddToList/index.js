@@ -1,4 +1,10 @@
 /* eslint-disable react/prefer-stateless-function */
+/**
+ *
+ * AddToList
+ *
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -77,7 +83,7 @@ export class AddToList extends React.Component {
 
 AddToList.propTypes = {
   categories: PropTypes.array.isRequired,
-  onAddClick: PropTypes.func,
+  onAddClick: PropTypes.func.isRequired,
 };
 
 export default AddToList;

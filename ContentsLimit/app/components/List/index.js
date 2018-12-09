@@ -1,3 +1,9 @@
+/**
+ *
+ * List
+ *
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -20,7 +26,7 @@ function List({ list }) {
 }
 
 List.propTypes = {
-  list: PropTypes.array,
+  list: PropTypes.array.isRequired,
 };
 
 export default List;

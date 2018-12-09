@@ -1,23 +1,19 @@
 /* eslint-disable linebreak-style */
+/*
+ *
+ * App Selectors
+ *
+ */
+
 import { createSelector } from 'reselect';
 import get from 'lodash/get';
 
 import { initialState } from './reducer';
 
-/**
- * Direct selector to the application state domain
- */
-
+// Get app state from global state
 export const getApp = state => state.get('app', initialState);
 
-/**
- * Other specific selectors
- */
-
-/**
- * Default selector used by App
- */
-
+// Get the list property
 export const getList = createSelector(getApp, app => get(app, 'list'));
 
 export const getStructuredList = createSelector(getList, list => {
@@ -48,6 +44,7 @@ export const getStructuredList = createSelector(getList, list => {
 });
 
 export const getTotal = createSelector(getList, list => {
+  // Get the sum of prices in the entire list
   const total = list.reduce(
     (accumulator, item) => accumulator + parseFloat(item.price),
     0,

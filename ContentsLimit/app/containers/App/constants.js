@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 /*
  *
- * App constants
+ * App Constants
  *
  */
 

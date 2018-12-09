@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 /*
  *
- * App reducer
+ * App Reducer
  *
  */
 

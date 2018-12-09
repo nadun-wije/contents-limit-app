@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 export const tablet = '480px';
 
 export const colors = {

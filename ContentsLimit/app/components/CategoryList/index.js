@@ -1,3 +1,9 @@
+/**
+ *
+ * CategoryList
+ *
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -23,9 +29,9 @@ function CategoryList({ category, total, items }) {
 }
 
 CategoryList.propTypes = {
-  category: PropTypes.string,
-  total: PropTypes.string,
-  items: PropTypes.array,
+  category: PropTypes.string.isRequired,
+  total: PropTypes.string.isRequired,
+  items: PropTypes.array.isRequired,
 };
 
 export default CategoryList;

@@ -1,3 +1,9 @@
+/**
+ *
+ * ListItem
+ *
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -13,6 +19,8 @@ function ListItem({ name, price, id, isCategory, onDeleteClick }) {
     <Container isCategory={isCategory}>
       <Name isBold={isCategory}>{name}</Name>
       <Price isBold={isCategory}>$ {price}</Price>
+
+      {/* Only display delete button if it's not a category header */}
       {!isCategory && (
         <button
           type="button"
@@ -32,8 +40,8 @@ ListItem.defaultProps = {
 };
 
 ListItem.propTypes = {
-  name: PropTypes.string,
-  price: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
   id: PropTypes.number,
   isCategory: PropTypes.bool,
   onDeleteClick: PropTypes.func,

@@ -1,3 +1,9 @@
+/*
+ *
+ * App Styled Components
+ *
+ */
+
 import styled from 'styled-components';
 import { tablet, colors } from '../../styles/constants';
 
@@ -10,7 +16,6 @@ export const AppContainer = styled.div`
   font-size: 16px;
   font-family: 'Noto Sans', sans-serif;
   color: ${colors.darkGrey};
-  /* font-family: 'Times New Roman', serif; */
   line-height: 20px;
 
   button {

@@ -2,7 +2,7 @@
 
 /**
  *
- * App
+ * App Container
  *
  */
 
@@ -25,9 +25,9 @@ function App({ list, total, onAddItemClick }) {
     <AppContainer>
       <ListContainer>
         <List list={list} />
-
         <TotalText>Total: $ {total}</TotalText>
       </ListContainer>
+
       <AddToList categories={CATEGORY_LIST} onAddClick={onAddItemClick} />
     </AppContainer>
   );
