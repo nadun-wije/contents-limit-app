@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, InputFields, Input, Button } from './styledComponents';
+import { Container, Select, Input, Button } from './styledComponents';
 
 export class AddToList extends React.Component {
   constructor(props) {
@@ -49,7 +49,7 @@ export class AddToList extends React.Component {
     const { categories } = this.props;
     return (
       <Container>
-        <InputFields>
+        <div>
           <Input
             type="text"
             name="NAME"
@@ -57,12 +57,12 @@ export class AddToList extends React.Component {
             onChange={this.updateName}
           />
           <Input type="number" name="PRICE" onChange={this.updatePrice} />
-          <select onChange={this.updateCategory}>
+          <Select onChange={this.updateCategory}>
             {categories.map(category => (
               <option key={category}>{category}</option>
             ))}
-          </select>
-        </InputFields>
+          </Select>
+        </div>
         <Button
           type="button"
           onClick={this.addClickHandler}

@@ -12,13 +12,10 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
-import injectReducer from 'utils/injectReducer';
-
 import List from '../../components/List';
 import AddToList from '../../components/AddToList';
 
 import { getStructuredList, getTotal } from './selectors';
-import reducer from './reducer';
 import { AppContainer, TotalText, ListContainer } from './styledComponents';
 import { CATEGORY_LIST } from './constants';
 import { addToList } from './actions';

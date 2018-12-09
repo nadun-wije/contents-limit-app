@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { tablet } from '../../styles/constants';
+import { tablet, colors } from '../../styles/constants';
 
 export const AppContainer = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
@@ -9,6 +9,7 @@ export const AppContainer = styled.div`
   min-height: 100%;
   font-size: 16px;
   font-family: 'Noto Sans', sans-serif;
+  color: ${colors.darkGrey};
   /* font-family: 'Times New Roman', serif; */
   line-height: 20px;
 
@@ -26,6 +27,9 @@ export const AppContainer = styled.div`
 export const TotalText = styled.p`
   padding-top: 20px;
   padding-left: 40px;
+  font-weight: bold;
+
+  color: ${colors.green};
 `;
 
 export const ListContainer = styled.div`

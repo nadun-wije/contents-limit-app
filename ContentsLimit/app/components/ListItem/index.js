@@ -11,8 +11,8 @@ import { Price, Name, Container } from './styledComponents';
 function ListItem({ name, price, id, isCategory, onDeleteClick }) {
   return (
     <Container isCategory={isCategory}>
-      <Name>{name}</Name>
-      <Price>$ {price}</Price>
+      <Name isBold={isCategory}>{name}</Name>
+      <Price isBold={isCategory}>$ {price}</Price>
       {!isCategory && (
         <button
           type="button"
