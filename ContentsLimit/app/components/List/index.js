@@ -4,15 +4,16 @@ import PropTypes from 'prop-types';
 import { Container } from './styledComponents';
 import CategoryList from '../CategoryList';
 
-function List({ categories }) {
+function List({ list, onDeleteClick }) {
   return (
     <Container>
-      {categories.map(item => (
+      {list.map(item => (
         <CategoryList
           key={item.category}
           category={item.category}
           total={item.total}
           items={item.items}
+          onDeleteClick={onDeleteClick}
         />
       ))}
     </Container>
@@ -20,7 +21,8 @@ function List({ categories }) {
 }
 
 List.propTypes = {
-  categories: PropTypes.array,
+  list: PropTypes.array,
+  onDeleteClick: PropTypes.func,
 };
 
 export default List;

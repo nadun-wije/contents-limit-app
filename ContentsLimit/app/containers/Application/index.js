@@ -26,7 +26,7 @@ function Application({ list, total, onAddItemClick, onDeleteItemClick }) {
   return (
     <AppContainer>
       <ListContainer>
-        <List categories={list} />
+        <List list={list} />
 
         <TotalText>Total: {total}</TotalText>
       </ListContainer>

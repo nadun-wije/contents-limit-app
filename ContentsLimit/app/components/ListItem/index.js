@@ -1,15 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
+import { deleteFromList } from '../../containers/Application/actions';
 import DeleteIcon from '../../images/delete.png';
+
 import { Price, Name, Container } from './styledComponents';
 
-function ListItem({ name, price, isCategory }) {
+function ListItem({ name, price, id, isCategory, onDeleteClick }) {
   return (
     <Container isCategory={isCategory}>
       <Name>{name}</Name>
       <Price>$ {price}</Price>
-      {!isCategory && <img src={DeleteIcon} alt="Delete" />}
+      {!isCategory && (
+        <button
+          type="button"
+          onClick={() => {
+            onDeleteClick(id);
+          }}
+        >
+          <img src={DeleteIcon} alt="Delete" />
+        </button>
+      )}
     </Container>
   );
 }
@@ -19,9 +32,23 @@ ListItem.defaultProps = {
 };
 
 ListItem.propTypes = {
-  isCategory: PropTypes.bool,
   name: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
+  id: PropTypes.number,
+  isCategory: PropTypes.bool,
+  onDeleteClick: PropTypes.func,
 };
 
-export default ListItem;
+const mapDispatchToProps = dispatch => ({
+  onDeleteClick: id => {
+    console.log('id', id);
+    dispatch(deleteFromList(id));
+  },
+});
+
+const withConnect = connect(
+  null,
+  mapDispatchToProps,
+);
+
+export default compose(withConnect)(ListItem);

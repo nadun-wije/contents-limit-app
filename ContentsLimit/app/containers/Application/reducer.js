@@ -27,7 +27,9 @@ function applicationReducer(state = initialState, action) {
     }
     case DELETE_FROM_LIST: {
       // Remove the item from the list
+      console.log(action);
       const newList = state.list.filter(item => item.id !== action.itemId);
+      console.log(newList);
       // Update the list in state
       return {
         ...state,
