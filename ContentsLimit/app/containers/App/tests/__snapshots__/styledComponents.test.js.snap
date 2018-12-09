@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App styled components AppContainer styled component should render with styles 1`] = `
+.c0 {
+  max-width: 500px;
+  margin: 0 auto;
+  min-height: 100%;
+  font-size: 16px;
+  font-family: 'Noto Sans',sans-serif;
+  color: #4D4D4F;
+  line-height: 20px;
+}
+
+.c0 button {
+  cursor: pointer;
+  font-family: 'Noto Sans',sans-serif;
+}
+
+.c0 input,
+.c0 select {
+  font-family: 'Noto Sans',sans-serif;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`App styled components ListContainer styled component should render with styles 1`] = `
+.c0 {
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: calc(100vh - 180px);
+}
+
+.c0::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+@media (min-width:480px) {
+  .c0 {
+    margin-top: 20px;
+    width: 500px;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`App styled components TotalText styled component should render with styles 1`] = `
+.c0 {
+  padding-top: 20px;
+  padding-left: 40px;
+  font-weight: bold;
+  color: #5BB947;
+}
+
+<p
+  className="c0"
+/>
+`;

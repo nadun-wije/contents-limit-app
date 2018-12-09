@@ -20,7 +20,7 @@ import { AppContainer, TotalText, ListContainer } from './styledComponents';
 import { CATEGORY_LIST } from './constants';
 import { addToList } from './actions';
 
-function App({ list, total, onAddItemClick }) {
+export function App({ list, total, onAddItemClick }) {
   return (
     <AppContainer>
       <ListContainer>
