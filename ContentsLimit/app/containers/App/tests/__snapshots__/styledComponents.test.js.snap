@@ -28,7 +28,7 @@ exports[`App styled components AppContainer styled component should render with 
 
 exports[`App styled components ListContainer styled component should render with styles 1`] = `
 .c0 {
-  border: 1px solid black;
+  border: 2px solid #5BB947;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

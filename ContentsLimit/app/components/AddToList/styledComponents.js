@@ -11,7 +11,8 @@ export const AddToListContainer = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  border: 2px solid ${colors.green};
+  border-top: none;
   padding: 20px;
   position: fixed;
   bottom: 0;
@@ -20,6 +21,7 @@ export const AddToListContainer = styled.form`
   height: 180px;
 
   @media (min-width: ${tablet}) {
+    border-top: 2px solid ${colors.green};
     width: 500px;
     bottom: 10px;
   }

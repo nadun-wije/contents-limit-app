@@ -38,7 +38,7 @@ export const TotalText = styled.p`
 `;
 
 export const ListContainer = styled.div`
-  border: 1px solid black;
+  border: 2px solid ${colors.green};
   display: flex;
   flex-direction: column;
   width: 100%;
