@@ -8,11 +8,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import CategoryList from '../CategoryList';
-import { Container } from './styledComponents';
+import { ListContainer } from './styledComponents';
 
 function List({ list }) {
   return (
-    <Container>
+    <ListContainer>
       {list.map(item => (
         <CategoryList
           key={item.category}
@@ -21,7 +21,7 @@ function List({ list }) {
           items={item.items}
         />
       ))}
-    </Container>
+    </ListContainer>
   );
 }
 

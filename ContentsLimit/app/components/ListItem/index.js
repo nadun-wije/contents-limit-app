@@ -12,11 +12,11 @@ import { compose } from 'redux';
 import { deleteFromList } from '../../containers/App/actions';
 import DeleteIcon from '../../images/delete.png';
 
-import { Price, Name, Container } from './styledComponents';
+import { Price, Name, ListItemContainer } from './styledComponents';
 
 export function ListItem({ name, price, id, isCategory, onDeleteClick }) {
   return (
-    <Container isCategory={isCategory}>
+    <ListItemContainer isCategory={isCategory}>
       <Name isBold={isCategory}>{name}</Name>
       <Price isBold={isCategory}>$ {price}</Price>
 
@@ -31,7 +31,7 @@ export function ListItem({ name, price, id, isCategory, onDeleteClick }) {
           <img src={DeleteIcon} alt="Delete" />
         </button>
       )}
-    </Container>
+    </ListItemContainer>
   );
 }
 

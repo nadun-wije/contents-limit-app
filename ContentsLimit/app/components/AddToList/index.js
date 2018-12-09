@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Select, Input, Button } from './styledComponents';
+import { AddToListContainer, Select, Input, Button } from './styledComponents';
 
 export class AddToList extends React.Component {
   constructor(props) {
@@ -54,7 +54,7 @@ export class AddToList extends React.Component {
   render() {
     const { categories } = this.props;
     return (
-      <Container>
+      <AddToListContainer>
         <div>
           <Input
             type="text"
@@ -76,7 +76,7 @@ export class AddToList extends React.Component {
         >
           Add
         </Button>
-      </Container>
+      </AddToListContainer>
     );
   }
 }

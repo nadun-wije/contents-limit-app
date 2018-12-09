@@ -8,13 +8,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ListItem from '../ListItem';
-import { Container } from './styledComponents';
+import { CategoryListContainer } from './styledComponents';
 
 function CategoryList({ category, total, items }) {
   return (
     <React.Fragment>
       <ListItem name={category} price={total} isCategory />
-      <Container>
+      <CategoryListContainer>
         {items.map(item => (
           <ListItem
             key={item.id}
@@ -23,7 +23,7 @@ function CategoryList({ category, total, items }) {
             price={item.price}
           />
         ))}
-      </Container>
+      </CategoryListContainer>
     </React.Fragment>
   );
 }

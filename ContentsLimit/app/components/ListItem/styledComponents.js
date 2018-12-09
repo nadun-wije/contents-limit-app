@@ -7,7 +7,7 @@
 import styled from 'styled-components';
 import { tablet } from '../../styles/constants';
 
-export const Container = styled.li`
+export const ListItemContainer = styled.li`
   display: flex;
   align-items: center;
   width: 100%;

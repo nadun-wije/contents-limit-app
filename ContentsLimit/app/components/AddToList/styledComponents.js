@@ -7,7 +7,7 @@
 import styled from 'styled-components';
 import { tablet, colors } from '../../styles/constants';
 
-export const Container = styled.form`
+export const AddToListContainer = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
