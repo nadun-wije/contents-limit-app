@@ -67,9 +67,8 @@ const mapDispatchToProps = dispatch => ({
   onDeleteItemClick: () => {
     console.log('onDeleteItemClick');
   },
-  onAddItemClick: () => {
-    console.log('onAddItemClick');
-    dispatch(addToList({ id: 'A' }));
+  onAddItemClick: item => {
+    dispatch(addToList(item));
   },
 });
 
