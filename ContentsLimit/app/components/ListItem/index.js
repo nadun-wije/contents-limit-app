@@ -14,7 +14,7 @@ import DeleteIcon from '../../images/delete.png';
 
 import { Price, Name, Container } from './styledComponents';
 
-function ListItem({ name, price, id, isCategory, onDeleteClick }) {
+export function ListItem({ name, price, id, isCategory, onDeleteClick }) {
   return (
     <Container isCategory={isCategory}>
       <Name isBold={isCategory}>{name}</Name>
