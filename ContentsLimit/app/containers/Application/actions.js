@@ -1,13 +1,22 @@
+/* eslint-disable linebreak-style */
 /*
  *
  * Application actions
  *
  */
 
-import { DEFAULT_ACTION } from './constants';
+import { ADD_TO_LIST, DELETE_FROM_LIST } from './constants';
 
-export function defaultAction() {
+export const addToList = item => {
   return {
-    type: DEFAULT_ACTION,
+    type: ADD_TO_LIST,
+    item,
   };
-}
+};
+
+export const deleteFromList = itemId => {
+  return {
+    type: DELETE_FROM_LIST,
+    itemId,
+  };
+};

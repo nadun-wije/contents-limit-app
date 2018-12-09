@@ -16,36 +16,38 @@ import injectReducer from 'utils/injectReducer';
 import makeSelectApplication from './selectors';
 import reducer from './reducer';
 import List from '../../components/List';
-import { AppContainer, TotalText } from './styledComponents';
+import { AppContainer, TotalText, ListContainer } from './styledComponents';
 import AddToList from '../../components/AddToList';
 import { CATEGORY_LIST } from './constants';
+import { addToList } from './actions';
 
 function Application({ total, onAddItemClick, onDeleteItemClick }) {
   return (
     <AppContainer>
-      <List
-        categories={[
-          {
-            category: 'Electronics',
-            total: 123,
-            items: [
-              { id: 1, name: 'First', price: 10 },
-              { id: 2, name: 'Second', price: 20 },
-            ],
-          },
-          {
-            category: 'Clothing',
-            total: 123,
-            items: [
-              { id: 3, name: 'Third', price: 10 },
-              { id: 4, name: 'Fourth', price: 20 },
-            ],
-          },
-        ]}
-      />
+      <ListContainer>
+        <List
+          categories={[
+            {
+              category: 'Electronics',
+              total: 123,
+              items: [
+                { id: 1, name: 'First', price: 10 },
+                { id: 2, name: 'Second', price: 20 },
+              ],
+            },
+            {
+              category: 'Clothing',
+              total: 123,
+              items: [
+                { id: 3, name: 'Third', price: 10 },
+                { id: 4, name: 'Fourth', price: 20 },
+              ],
+            },
+          ]}
+        />
 
-      <TotalText>Total: {total}</TotalText>
-
+        <TotalText>Total: {total}</TotalText>
+      </ListContainer>
       <AddToList categories={CATEGORY_LIST} onAddClick={onAddItemClick} />
     </AppContainer>
   );
@@ -58,7 +60,7 @@ Application.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
-  application: makeSelectApplication(),
+  // application: makeSelectApplication(),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -67,6 +69,7 @@ const mapDispatchToProps = dispatch => ({
   },
   onAddItemClick: () => {
     console.log('onAddItemClick');
+    dispatch(addToList({ id: 'A' }));
   },
 });
 

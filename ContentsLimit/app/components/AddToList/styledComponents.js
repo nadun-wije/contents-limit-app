@@ -1,12 +1,20 @@
 import styled from 'styled-components';
+import { tablet } from '../../styles/constants';
 
 export const Container = styled.form`
   display: flex;
+  justify-content: center;
   align-items: center;
   border: 1px solid black;
   padding: 20px;
   position: fixed;
   bottom: 0;
+  width: 100%;
+
+  @media (min-width: ${tablet}) {
+    width: 500px;
+    bottom: 10px;
+  }
 `;
 
 export const InputFields = styled.div`

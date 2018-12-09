@@ -1,9 +1,11 @@
+/* eslint-disable linebreak-style */
 /*
  *
  * Application constants
  *
  */
 
-export const DEFAULT_ACTION = 'app/Application/DEFAULT_ACTION';
+export const ADD_TO_LIST = 'ADD_TO_LIST';
+export const DELETE_FROM_LIST = 'DELETE_FROM_LIST';
 
 export const CATEGORY_LIST = ['Electronics', 'Clothing', 'Kitchen'];
