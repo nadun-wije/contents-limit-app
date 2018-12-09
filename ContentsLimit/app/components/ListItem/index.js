@@ -41,7 +41,6 @@ ListItem.propTypes = {
 
 const mapDispatchToProps = dispatch => ({
   onDeleteClick: id => {
-    console.log('id', id);
     dispatch(deleteFromList(id));
   },
 });

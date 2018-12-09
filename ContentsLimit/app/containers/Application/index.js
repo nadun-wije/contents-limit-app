@@ -13,16 +13,17 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
 import injectReducer from 'utils/injectReducer';
-import { getList, getStructuredList } from './selectors';
-import reducer from './reducer';
+
 import List from '../../components/List';
-import { AppContainer, TotalText, ListContainer } from './styledComponents';
 import AddToList from '../../components/AddToList';
+
+import { getStructuredList } from './selectors';
+import reducer from './reducer';
+import { AppContainer, TotalText, ListContainer } from './styledComponents';
 import { CATEGORY_LIST } from './constants';
 import { addToList } from './actions';
 
-function Application({ list, total, onAddItemClick, onDeleteItemClick }) {
-  console.log(list);
+function Application({ list, total, onAddItemClick }) {
   return (
     <AppContainer>
       <ListContainer>
@@ -39,7 +40,6 @@ Application.propTypes = {
   list: PropTypes.array,
   total: PropTypes.number,
   onAddItemClick: PropTypes.func,
-  onDeleteItemClick: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -47,9 +47,6 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onDeleteItemClick: () => {
-    console.log('onDeleteItemClick');
-  },
   onAddItemClick: item => {
     dispatch(addToList(item));
   },

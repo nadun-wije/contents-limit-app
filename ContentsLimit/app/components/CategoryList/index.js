@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container } from './styledComponents';
 import ListItem from '../ListItem';
+import { Container } from './styledComponents';
 
-function CategoryList({ category, total, items, onDeleteClick }) {
+function CategoryList({ category, total, items }) {
   return (
     <React.Fragment>
       <ListItem name={category} price={total} isCategory />
@@ -15,7 +15,6 @@ function CategoryList({ category, total, items, onDeleteClick }) {
             id={item.id}
             name={item.name}
             price={item.price}
-            onDeleteClick={onDeleteClick}
           />
         ))}
       </Container>
@@ -27,7 +26,6 @@ CategoryList.propTypes = {
   category: PropTypes.string,
   total: PropTypes.number,
   items: PropTypes.array,
-  onDeleteClick: PropTypes.func,
 };
 
 export default CategoryList;

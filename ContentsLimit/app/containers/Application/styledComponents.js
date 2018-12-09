@@ -7,6 +7,10 @@ export const AppContainer = styled.div`
   min-height: 100%;
   font-size: 16px;
   line-height: 20px;
+
+  button {
+    cursor: pointer;
+  }
 `;
 
 export const TotalText = styled.p`

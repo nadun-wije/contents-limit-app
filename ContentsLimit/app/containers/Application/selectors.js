@@ -1,7 +1,8 @@
 /* eslint-disable linebreak-style */
 import { createSelector } from 'reselect';
-import { initialState } from './reducer';
 import get from 'lodash/get';
+
+import { initialState } from './reducer';
 
 /**
  * Direct selector to the application state domain
