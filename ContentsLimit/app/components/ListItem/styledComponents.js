@@ -12,5 +12,5 @@ export const Name = styled.p`
 `;
 
 export const Price = styled.p`
-  margin: 0;
+  margin: 0 20px 0 0;
 `;

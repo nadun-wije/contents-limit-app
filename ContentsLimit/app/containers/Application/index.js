@@ -15,18 +15,19 @@ import { compose } from 'redux';
 import injectReducer from 'utils/injectReducer';
 import makeSelectApplication from './selectors';
 import reducer from './reducer';
-import CategoryList from '../../components/CategoryList';
 import List from '../../components/List';
-import { AppContainer } from './styledComponents';
+import { AppContainer, TotalText } from './styledComponents';
+import AddToList from '../../components/AddToList';
+import { CATEGORY_LIST } from './constants';
 
-function Application() {
+function Application({ total, onAddItemClick, onDeleteItemClick }) {
   return (
     <AppContainer>
       <List
         categories={[
           {
             category: 'Electronics',
-            total: '123',
+            total: 123,
             items: [
               { id: 1, name: 'First', price: 10 },
               { id: 2, name: 'Second', price: 20 },
@@ -34,7 +35,7 @@ function Application() {
           },
           {
             category: 'Clothing',
-            total: '123',
+            total: 123,
             items: [
               { id: 3, name: 'Third', price: 10 },
               { id: 4, name: 'Fourth', price: 20 },
@@ -42,31 +43,32 @@ function Application() {
           },
         ]}
       />
+
+      <TotalText>Total: {total}</TotalText>
+
+      <AddToList categories={CATEGORY_LIST} onAddClick={onAddItemClick} />
     </AppContainer>
-    // <CategoryList
-    //   category="asdf"
-    //   total="456"
-    //   items={[
-    //     { id: 1, name: 'First', price: 10 },
-    //     { id: 2, name: 'Second', price: 20 },
-    //   ]}
-    // />
   );
 }
 
 Application.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  total: PropTypes.number,
+  onAddItemClick: PropTypes.func,
+  onDeleteItemClick: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
   application: makeSelectApplication(),
 });
 
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch,
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  onDeleteItemClick: () => {
+    console.log('onDeleteItemClick');
+  },
+  onAddItemClick: () => {
+    console.log('onAddItemClick');
+  },
+});
 
 const withConnect = connect(
   mapStateToProps,

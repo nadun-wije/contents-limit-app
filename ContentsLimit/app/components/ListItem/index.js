@@ -8,7 +8,7 @@ function ListItem({ name, price, isCategory }) {
   return (
     <Container isCategory={isCategory}>
       <Name>{name}</Name>
-      <Price>{price}</Price>
+      <Price>$ {price}</Price>
       {!isCategory && <img src={DeleteIcon} alt="Delete" />}
     </Container>
   );

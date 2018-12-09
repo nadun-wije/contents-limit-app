@@ -20,16 +20,15 @@ const AppWrapper = styled.div`
   min-height: 100%;
   padding: 0 16px;
   flex-direction: column;
+  margin-top: 40px;
+  font-size: 16px;
+  line-height: 20px;
 `;
 
 export default function App() {
   return (
-    <AppWrapper>
-      <Switch>
-        <Route path="/" component={Application} />
-        {/* <Route path="/features" component={FeaturePage} />
-        <Route path="" component={NotFoundPage} /> */}
-      </Switch>
-    </AppWrapper>
+    <Switch>
+      <Route path="/" component={Application} />
+    </Switch>
   );
 }
