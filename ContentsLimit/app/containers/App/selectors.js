@@ -46,3 +46,11 @@ export const getStructuredList = createSelector(getList, list => {
 
   return structuredList;
 });
+
+export const getTotal = createSelector(getList, list => {
+  const total = list.reduce(
+    (accumulator, item) => accumulator + parseFloat(item.price),
+    0,
+  );
+  return total;
+});

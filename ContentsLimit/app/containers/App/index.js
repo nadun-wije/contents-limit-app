@@ -17,7 +17,7 @@ import injectReducer from 'utils/injectReducer';
 import List from '../../components/List';
 import AddToList from '../../components/AddToList';
 
-import { getStructuredList } from './selectors';
+import { getStructuredList, getTotal } from './selectors';
 import reducer from './reducer';
 import { AppContainer, TotalText, ListContainer } from './styledComponents';
 import { CATEGORY_LIST } from './constants';
@@ -29,7 +29,7 @@ function App({ list, total, onAddItemClick }) {
       <ListContainer>
         <List list={list} />
 
-        <TotalText>Total: {total}</TotalText>
+        <TotalText>Total: $ {total}</TotalText>
       </ListContainer>
       <AddToList categories={CATEGORY_LIST} onAddClick={onAddItemClick} />
     </AppContainer>
@@ -44,6 +44,7 @@ App.propTypes = {
 
 const mapStateToProps = createStructuredSelector({
   list: getStructuredList,
+  total: getTotal,
 });
 
 const mapDispatchToProps = dispatch => ({

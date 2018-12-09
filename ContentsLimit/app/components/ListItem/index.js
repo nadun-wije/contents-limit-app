@@ -33,7 +33,7 @@ ListItem.defaultProps = {
 
 ListItem.propTypes = {
   name: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
   id: PropTypes.number,
   isCategory: PropTypes.bool,
   onDeleteClick: PropTypes.func,
