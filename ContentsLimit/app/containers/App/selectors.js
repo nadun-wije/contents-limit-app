@@ -38,7 +38,7 @@ export const getStructuredList = createSelector(getList, list => {
     // Create object with the necessary parameters and add to array
     const structuredListItem = {
       category,
-      total,
+      total: total.toString(),
       items: categoryList,
     };
     structuredList.push(structuredListItem);

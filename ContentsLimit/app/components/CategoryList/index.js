@@ -24,7 +24,7 @@ function CategoryList({ category, total, items }) {
 
 CategoryList.propTypes = {
   category: PropTypes.string,
-  total: PropTypes.number,
+  total: PropTypes.string,
   items: PropTypes.array,
 };
 

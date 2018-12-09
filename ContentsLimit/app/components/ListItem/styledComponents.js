@@ -7,8 +7,8 @@ export const Container = styled.li`
 `;
 
 export const Name = styled.p`
-  width: 200px;
-  margin: 0;
+  width: 150px;
+  margin: 5px 0;
 `;
 
 export const Price = styled.p`

@@ -40,7 +40,7 @@ export class AddToList extends React.Component {
   addClickHandler() {
     this.props.onAddClick({
       name: this.state.name,
-      price: this.state.price,
+      price: this.state.price.toString(),
       category: this.state.category,
     });
   }

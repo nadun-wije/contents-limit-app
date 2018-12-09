@@ -10,6 +10,8 @@ export const Container = styled.form`
   position: fixed;
   bottom: 0;
   width: 100%;
+  background-color: white;
+  height: 180px;
 
   @media (min-width: ${tablet}) {
     width: 500px;

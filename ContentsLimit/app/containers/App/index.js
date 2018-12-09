@@ -58,9 +58,4 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-const withReducer = injectReducer({ key: 'app', reducer });
-
-export default compose(
-  withReducer,
-  withConnect,
-)(App);
+export default compose(withConnect)(App);

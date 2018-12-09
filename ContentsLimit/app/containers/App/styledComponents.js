@@ -2,14 +2,24 @@ import styled from 'styled-components';
 import { tablet } from '../../styles/constants';
 
 export const AppContainer = styled.div`
+  @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
   max-width: 500px;
   margin: 0 auto;
   min-height: 100%;
   font-size: 16px;
+  font-family: 'Noto Sans', sans-serif;
+  /* font-family: 'Times New Roman', serif; */
   line-height: 20px;
 
   button {
     cursor: pointer;
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+  input,
+  select {
+    font-family: 'Noto Sans', sans-serif;
   }
 `;
 
@@ -25,6 +35,7 @@ export const ListContainer = styled.div`
   width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
+  height: calc(100vh - 180px);
 
   /* Hide the scrollbar */
   ::-webkit-scrollbar {
