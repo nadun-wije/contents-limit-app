@@ -2,10 +2,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { App } from '../index';
 import List from '../../../components/List';
 import { TotalText } from '../styledComponents';
 import AddToList from '../../../components/AddToList';
+
+import { App } from '../index';
 
 describe('<App />', () => {
   const props = {
